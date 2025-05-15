@@ -1,0 +1,412 @@
+/* TemplateShowcase.module.css */
+.templateShowcase {
+    padding: 8rem 0;
+    background-color: var(--dark-bg);
+    position: relative;
+    overflow: hidden;
+  }
+  
+
+  
+  .container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .sectionHeader {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  
+  .sectionLabel {
+    display: inline-block;
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    padding: 0.5rem 1rem;
+    background-color: rgba(82, 182, 154, 0.1);
+    border-radius: 30px;
+    color: var(--primary-green);
+    margin-bottom: 1.5rem;
+  }
+  
+  .sectionHeader h2 {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--dark-text);
+  }
+  
+  .sectionHeader p {
+    color: var(--dark-text-secondary);
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  
+  .gradient {
+    background: linear-gradient(90deg, var(--primary-green), var(--accent-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .showcaseContainer {
+    position: relative;
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 0 3.5rem; /* Added padding to make room for navigation buttons */
+  }
+  
+  .showcaseWrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-lg);
+    perspective: 1000px;
+  }
+  
+  .showcaseSlider {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    height: 500px;
+  }
+  
+  .templateSlide {
+    min-width: 100%;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+  
+  .activeSlide {
+    opacity: 1;
+    z-index: 2;
+  }
+  
+  .templatePreview {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+  }
+  
+  .templateGradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+  
+  .templateContent {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    padding: 3rem;
+  }
+  
+  .templateInfo {
+    background: rgba(18, 18, 18, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 2.5rem;
+    border-radius: var(--border-radius-lg);
+    max-width: 500px;
+    animation: fadeInUp 0.6s ease forwards;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .templateBadge {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  
+  .templateInfo h3 {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--dark-text);
+  }
+  
+  .templateInfo p {
+    color: var(--dark-text-secondary);
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+  
+  .templateActions {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .previewBtn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.9rem 1.8rem;
+    background: linear-gradient(90deg, var(--primary-green), var(--accent-blue));
+    color: var(--dark-text);
+    border-radius: var(--border-radius-md);
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .previewBtn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(22, 138, 173, 0.3);
+  }
+  
+  .infoBtn {
+    display: flex;
+    align-items: center;
+    padding: 0.9rem 1.8rem;
+    background: transparent;
+    color: var(--dark-text);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius-md);
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .infoBtn:hover {
+    background: rgba(255, 255, 255, 0.05);
+  }
+  
+  .iconWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .navButton {
+    position: absolute;
+    padding: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: rgba(18, 18, 18, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--dark-text);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 3;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .prevButton {
+    left: 0; /* Adjusted from -30px to 0 */
+  }
+  
+  .nextButton {
+    right: 0; /* Adjusted from -30px to 0 */
+  }
+  
+  .navButton:hover {
+    background-color: var(--primary-green);
+    transform: translateY(-50%) scale(1.1);
+  }
+  
+  .templateProgress {
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .progressTrack {
+    width: 100%;
+    height: 3px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  
+  .progressBar {
+    height: 100%;
+    transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.6s ease;
+  }
+  
+  .templateDots {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+  }
+  
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+  }
+  
+  .dot:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+  
+  .activeDot {
+    transform: scale(1.5);
+  }
+  
+  .showcaseCta {
+    text-align: center;
+    margin-top: 4rem;
+  }
+  
+  .viewAllBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem 2rem;
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--dark-text);
+    border-radius: var(--border-radius-md);
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .viewAllBtn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
+    transition: all 0.8s ease;
+  }
+  
+  .viewAllBtn:hover {
+    background-color: rgba(82, 182, 154, 0.1);
+    border-color: rgba(82, 182, 154, 0.3);
+    transform: translateY(-3px);
+  }
+  
+  .viewAllBtn:hover::before {
+    left: 100%;
+  }
+  
+  @media (max-width: 992px) {
+    .showcaseContainer {
+      padding: 0 3rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .templateShowcase {
+      padding: 5rem 0;
+    }
+    
+    .sectionHeader h2 {
+      font-size: 2.5rem;
+    }
+    
+    .showcaseContainer {
+      padding: 0 2.5rem;
+    }
+    
+    .showcaseSlider {
+      height: 450px;
+    }
+    
+    .templateInfo {
+      padding: 2rem;
+    }
+    
+    .templateInfo h3 {
+      font-size: 1.8rem;
+    }
+    
+    .previewBtn, .infoBtn {
+      padding: 0.8rem 1.5rem;
+    }
+    
+    .navButton {
+      width: 46px;
+      height: 46px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .sectionHeader h2 {
+      font-size: 2rem;
+    }
+    
+    .showcaseContainer {
+      padding: 0 2rem;
+    }
+    
+    .showcaseSlider {
+      height: 400px;
+    }
+    
+    .templateInfo {
+      padding: 1.5rem;
+    }
+    
+    .templateInfo h3 {
+      font-size: 1.5rem;
+    }
+    
+    .templateInfo p {
+      font-size: 1rem;
+    }
+    
+    .templateActions {
+      flex-direction: column;
+    }
+    
+    .navButton {
+      width: 40px;
+      height: 40px;
+    }
+  }

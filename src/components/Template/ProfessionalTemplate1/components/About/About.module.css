@@ -1,0 +1,305 @@
+/* About section styles */
+.section {
+    padding: 80px 0;
+    position: relative;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    /* CSS variables initialized in the component */
+    --primary-color: #333;
+    --accent-color: #007bff;
+    --text-color: #333;
+    --subtext-color: #666;
+    --secondary-color: #f5f5f5;
+  }
+  
+  .visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .contentContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+.headingIcon {
+    margin-right: 10px;
+    color: var(--accent-color);
+    vertical-align: middle;
+  }
+  
+  .sectionHeading {
+    font-size: 38px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    background: linear-gradient(135deg, var(--text-color) 0%, var(--accent-color) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    transition: all 0.3s ease;
+  }
+  
+  .sectionHeading:hover {
+    transform: translateX(5px);
+  }
+  
+  .underline {
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(to right, var(--accent-color), var(--primary-color));
+    border-radius: 2px;
+    transition: width 0.3s ease;
+  }
+  
+  .sectionHeading:hover .underline {
+    width: 100%;
+  }
+  
+  .sectionSubheading {
+    font-size: 18px;
+    color: var(--subtext-color);
+    margin-bottom: 50px;
+    max-width: 700px;
+    line-height: 1.6;
+  }
+  
+  .aboutContainer {
+    width: 100%;
+    animation: fadeIn 0.8s ease-in-out;
+  }
+  
+  /* Improved About Text and Container */
+  .aboutText {
+    font-size: 18px;
+    line-height: 2;
+    color: var(--text-color);
+    margin-bottom: 40px;
+    padding: 30px;
+    border-left: 4px solid var(--accent-color);
+    border-radius: 0 12px 12px 0;
+    background: linear-gradient(to right, color-mix(in srgb, var(--accent-color) 5%, transparent), color-mix(in srgb, var(--accent-color) 2%, transparent));
+    backdrop-filter: blur(5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .aboutText::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--accent-color) 0%, transparent 150%);
+    opacity: 0.08;
+    z-index: -1;
+  }
+  
+  .aboutText::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle, var(--accent-color) 0%, transparent 70%);
+    opacity: 0.1;
+    border-radius: 50%;
+    transform: translate(30%, 30%);
+    transition: all 0.4s ease;
+  }
+  
+  .aboutText:hover {
+    transform: translateY(-5px) translateX(3px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+    border-left-width: 6px;
+  }
+  
+  .aboutText:hover::after {
+    transform: translate(20%, 20%) scale(1.5);
+    opacity: 0.15;
+  }
+  
+  .aboutText p:first-of-type::first-letter {
+    font-size: 200%;
+    color: var(--accent-color);
+    font-weight: 600;
+    padding-right: 5px;
+    float: left;
+    line-height: 1;
+  }
+  
+  .infoContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+  }
+  
+  .infoItem {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    background-color: var(--secondary-color);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s ease forwards;
+    animation-delay: calc(var(--index) * 0.1s);
+  }
+  
+  .infoItem:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .infoLabel {
+    font-weight: 600;
+    color: var(--text-color);
+    min-width: 75px;
+  }
+  
+  .infoValue {
+    color: var(--subtext-color);
+    word-break: break-word;
+  }
+  
+  .achievementsSection {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px dashed var(--subtext-color);
+    animation: fadeIn 1s ease-in-out;
+    animation-delay: 0.3s;
+  }
+  
+  .achievementsHeading {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--text-color);
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(135deg, var(--text-color) 0%, var(--accent-color) 70%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .achievementsHeading::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: linear-gradient(to right, var(--accent-color), var(--primary-color));
+    border-radius: 2px;
+    transition: width 0.3s ease;
+  }
+  
+  .achievementsHeading:hover::after {
+    width: 100%;
+  }
+  
+  .aboutList {
+    margin: 30px 0;
+    padding-left: 10px;
+    list-style: none;
+  }
+  
+  .aboutListItem {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: var(--text-color);
+    position: relative;
+    padding-left: 25px;
+    transition: transform 0.3s ease;
+    line-height: 1.7;
+  }
+  
+  .aboutListItem:hover {
+    transform: translateX(5px);
+  }
+  
+  .bulletPoint {
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-size: 20px;
+  }
+  
+  .achievementYear {
+    color: var(--accent-color);
+    margin: 0 5px;
+    font-weight: 500;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .section {
+      padding: 60px 0;
+    }
+    
+    .sectionHeading {
+      font-size: 32px;
+    }
+    
+    .infoContainer {
+      grid-template-columns: 1fr;
+    }
+    
+    .aboutText {
+      padding: 25px;
+      font-size: 17px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .sectionHeading {
+      font-size: 28px;
+    }
+    
+    .sectionSubheading {
+      font-size: 16px;
+    }
+    
+    .aboutText {
+      font-size: 16px;
+      padding: 20px;
+      line-height: 1.8;
+    }
+  }

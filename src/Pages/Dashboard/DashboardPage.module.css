@@ -1,0 +1,41 @@
+.dashboardPage {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+  font-family: var(--font-body);
+  overflow: hidden; /* Prevent page-wide scrolling */
+}
+
+.mainContentWrapper {
+  flex: 1;
+  height: 100vh;
+  overflow-y: auto; /* Allow scrolling in main content if needed */
+  transition: margin-left var(--transition-normal);
+}
+
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: var(--dark-text-secondary);
+}
+
+.loadingSpinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(var(--primary-green-rgb), 0.1);
+  border-left-color: var(--primary-green);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,344 @@
+/* HowItWorks.module.css */
+.howItWorks {
+  padding: 8rem 0;
+  position: relative;
+  overflow: hidden;
+  background: var(--dark-bg);
+}
+
+.bgElements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.circle1 {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(82, 182, 154, 0.15) 0%, rgba(82, 182, 154, 0) 70%);
+  top: -200px;
+  left: -150px;
+  animation: float 15s ease-in-out infinite alternate;
+}
+
+.circle2 {
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(30, 96, 145, 0.15) 0%, rgba(30, 96, 145, 0) 70%);
+  bottom: -300px;
+  right: -250px;
+  animation: float 20s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(20px, 20px);
+  }
+  100% {
+    transform: translate(-20px, -20px);
+  }
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 6rem;
+  position: relative;
+}
+
+.sectionHeader h2 {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  position: relative;
+  display: inline-block;
+}
+
+.sectionHeader h2::after {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-green), var(--deep-blue));
+  border-radius: 3px;
+}
+
+.sectionHeader p {
+  color: var(--dark-text-secondary);
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.gradient {
+  background: linear-gradient(90deg, var(--primary-green), var(--deep-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stepsContainer {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  padding: 0 2rem;
+}
+
+.step {
+  width: 22%;
+  position: relative;
+  z-index: 1;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: rgba(30, 30, 30, 0.5);
+  border-radius: 20px;
+  padding: 2.5rem 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.step:hover {
+  transform: translateY(-15px);
+  background: rgba(40, 40, 40, 0.6);
+  border-color: rgba(82, 182, 154, 0.3);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.stepNumber {
+  font-size: 5rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.03);
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+  transition: all 0.3s ease;
+}
+
+.step:hover .stepNumber {
+  color: rgba(82, 182, 154, 0.1);
+  transform: translateX(-50%) scale(1.1);
+}
+
+.stepIcon {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  background: linear-gradient(135deg, rgba(82, 182, 154, 0.8), rgba(30, 96, 145, 0.8));
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: white;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.step:hover .stepIcon {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 15px 30px rgba(82, 182, 154, 0.3);
+}
+
+.stepContent {
+  width: 100%;
+}
+
+.stepContent h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.2rem;
+  color: var(--dark-text);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.step:hover .stepContent h3 {
+  color: var(--primary-green);
+}
+
+.stepContent p {
+  color: var(--dark-text-secondary);
+  font-size: 1rem;
+  line-height: 1.7;
+  transition: all 0.3s ease;
+}
+
+.step:hover .stepContent p {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.connector {
+  position: absolute;
+  top: 40px;
+  right: -40%;
+  width: 80%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary-green), var(--deep-blue));
+  z-index: -1;
+  opacity: 0.6;
+}
+
+.connector::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: -4px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--primary-green);
+  animation: pulse 2s infinite;
+}
+
+.connector::after {
+  content: '';
+  position: absolute;
+  right: -5px;
+  top: -4px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--deep-blue);
+  animation: pulse 2s infinite 1s;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1200px) {
+  .stepsContainer {
+    padding: 0 1rem;
+  }
+  
+  .step {
+    padding: 2rem 1rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .howItWorks {
+    padding: 6rem 0;
+  }
+
+  .stepsContainer {
+    flex-direction: column;
+    max-width: 600px;
+    gap: 4rem;
+  }
+  
+  .step {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    padding: 2rem;
+    text-align: left;
+  }
+  
+  .stepIcon {
+    margin-right: 2rem;
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+  
+  .connector {
+    width: 2px;
+    height: 100px;
+    top: 90px;
+    left: 40px;
+    right: auto;
+    background: linear-gradient(to bottom, var(--primary-green), var(--deep-blue));
+  }
+  
+  .connector::before {
+    left: -4px;
+    top: 0;
+  }
+  
+  .connector::after {
+    right: -4px;
+    top: auto;
+    bottom: -5px;
+    left: -4px;
+  }
+  
+  .stepNumber {
+    top: -20px;
+    left: 90px;
+  }
+  
+  .step:hover {
+    transform: translateX(10px);
+  }
+}
+
+@media (max-width: 576px) {
+  .howItWorks {
+    padding: 5rem 0;
+  }
+  
+  .sectionHeader h2 {
+    font-size: 2.5rem;
+  }
+  
+  .step {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+  }
+  
+  .stepIcon {
+    margin-right: 0;
+    margin-bottom: 1.5rem;
+  }
+  
+  .stepNumber {
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .connector {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .step:hover {
+    transform: translateY(-10px);
+  }
+}

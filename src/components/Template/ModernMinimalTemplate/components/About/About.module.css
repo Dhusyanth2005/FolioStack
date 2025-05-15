@@ -1,0 +1,130 @@
+.section {
+    padding: 50px 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    --primary-color: #fff;
+    --accent-color: #8a2be2;
+    --text-color: #333;
+    --subtext-color: #666;
+    --secondary-color: #f5f5f5;
+  }
+  
+  .visible {
+    opacity: 1;
+  }
+  
+  .contentContainer {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .sectionHeading {
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .headingIcon {
+    margin-right: 8px;
+    color: var(--accent-color);
+    vertical-align: middle;
+  }
+  
+  .bio {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text-color);
+    margin-bottom: 25px;
+  }
+  
+  .infoContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+    margin-bottom: 25px;
+  }
+  
+  .infoItem {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: var(--secondary-color);
+    border-radius: 4px;
+    opacity: 0;
+    animation: fadeIn 0.4s ease forwards;
+  }
+  
+  .infoLabel {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--subtext-color);
+  }
+  
+  .infoValue {
+    font-size: 14px;
+    color: var(--text-color);
+  }
+  
+  .achievementsContainer {
+    margin-top: 20px;
+  }
+  
+  .achievementsHeading {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text-color);
+    margin-bottom: 15px;
+  }
+  
+  .achievementsList {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .achievementItem {
+    font-size: 14px;
+    color: var(--text-color);
+    margin-bottom: 10px;
+    line-height: 1.6;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .section {
+      padding: 40px 0;
+    }
+  
+    .sectionHeading {
+      font-size: 24px;
+    }
+  
+    .bio {
+      font-size: 14px;
+    }
+  
+    .infoContainer {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .sectionHeading {
+      font-size: 22px;
+    }
+  
+    .bio {
+      font-size: 13px;
+    }
+  }

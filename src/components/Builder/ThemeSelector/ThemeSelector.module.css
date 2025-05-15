@@ -1,0 +1,220 @@
+/* ThemeSelector.module.css */
+.themeSelector {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 40px 20px;
+    font-family: var(--font-body);
+  }
+  
+  .sectionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .themeSelector h2 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--navy-blue);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .headerIcon {
+    color: var(--primary-green);
+  }
+  
+  .activeBadge {
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .instruction {
+    font-size: 1.1rem;
+    color: var(--dark-text-secondary);
+    margin-bottom: 32px;
+    max-width: 80%;
+    line-height: 1.6;
+  }
+  
+  .themesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+  }
+  
+  .themeCard {
+    background: white;
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+    cursor: pointer;
+    position: relative;
+    border: 2px solid transparent;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .themeCard:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .themeCard.selected {
+    transform: translateY(-5px);
+  }
+  
+  .themePreview {
+    display: flex;
+    height: 100px;
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .themePrimary {
+    flex: 3;
+    height: 100%;
+  }
+  
+  .themeSecondary {
+    flex: 2;
+    height: 100%;
+  }
+  
+  .themeAccent {
+    flex: 1;
+    height: 100%;
+  }
+  
+  .themeInfo {
+    margin-bottom: 16px;
+  }
+  
+  .themeInfo h3 {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 8px;
+  }
+  
+  .themeInfo p {
+    font-size: 0.95rem;
+    color: var(--dark-text-secondary);
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+  
+  .colorLabels {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 16px;
+  }
+  
+  .colorLabel {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #f5f5f5;
+    padding: 4px 8px;
+    border-radius: var(--border-radius-sm);
+    font-size: 0.8rem;
+  }
+  
+  .colorDot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .themeSelectIndicator {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid transparent;
+    transition: all var(--transition-normal);
+  }
+  
+  .selectedMark {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+  
+  .checkIcon {
+    width: 16px;
+    height: 16px;
+  }
+  
+  /* Dark mode styling */
+  @media (prefers-color-scheme: dark) {
+    .themeCard {
+      background: var(--dark-surface);
+    }
+    
+    .themeInfo h3 {
+      color: white;
+    }
+    
+    .themeInfo p {
+      color: var(--dark-text-secondary);
+    }
+    
+    .colorLabel {
+      background-color: var(--dark-surface-2);
+      color: white;
+    }
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .themesGrid {
+      grid-template-columns: 1fr 1fr;
+    }
+    
+    .sectionHeader {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    
+    .activeBadge {
+      align-self: flex-start;
+    }
+    
+    .instruction {
+      max-width: 100%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .themesGrid {
+      grid-template-columns: 1fr;
+    }
+  }

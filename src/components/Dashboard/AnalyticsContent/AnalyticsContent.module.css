@@ -1,0 +1,208 @@
+/* AnalyticsPage.module.css */
+.analyticsContent {
+  padding: 24px;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+/* Header styling aligned with dashboard */
+.dashboardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 20px;
+}
+
+.headerLeft h1 {
+  font-family: var(--font-heading);
+  font-size: 26px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  color: var(--dark-text);
+  letter-spacing: -0.5px;
+}
+
+.welcomeText {
+  color: var(--dark-text-secondary);
+  margin: 0;
+  font-size: 15px;
+  opacity: 0.85;
+}
+
+/* Stats grid with dashboard-like styling */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 36px;
+}
+
+.statCard {
+  background-color: var(--dark-surface-2);
+  border-radius: var(--border-radius-md);
+  padding: 22px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  position: relative;
+  overflow: hidden;
+}
+
+.statCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary-green), var(--secondary-teal));
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+.statCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  border-color: rgba(var(--primary-green-rgb), 0.1);
+}
+
+.statCard:hover::before {
+  opacity: 1;
+}
+
+/* Stat card layout */
+.statCard {
+  display: flex;
+  align-items: center;
+}
+
+.statIcon {
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(var(--primary-green-rgb), 0.15), rgba(var(--secondary-teal-rgb), 0.15));
+  border-radius: 12px;
+  margin-right: 16px;
+  color: var(--primary-green);
+}
+
+.statInfo h3 {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0 0 5px 0;
+  color: var(--dark-text);
+}
+
+.statInfo p {
+  margin: 0;
+  color: var(--dark-text-secondary);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+/* Analytics section styling */
+.analyticsSection {
+  margin-bottom: 40px;
+  background-color: var(--dark-surface);
+  border-radius: var(--border-radius-lg);
+  padding: 24px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.analyticsSection h2 {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: var(--dark-text);
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  letter-spacing: -0.3px;
+}
+
+/* Chart cards */
+.chartCard {
+  background-color: var(--dark-surface-2);
+  border-radius: var(--border-radius-md);
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+.chartCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  border-color: rgba(var(--primary-green-rgb), 0.05);
+}
+
+.chartCard h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 18px;
+  color: var(--dark-text);
+  letter-spacing: -0.3px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.chartContainer {
+  height: 260px;
+}
+
+/* Responsive layout */
+@media (max-width: 1200px) {
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .analyticsContent {
+    padding: 20px 16px;
+  }
+  
+  .dashboardHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .statsGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .statCard {
+    padding: 18px;
+  }
+  
+  .chartCard {
+    padding: 18px;
+  }
+  
+  .chartContainer {
+    height: 240px;
+  }
+}
+
+@media (max-width: 576px) {
+  .headerLeft h1 {
+    font-size: 22px;
+  }
+  
+  .statIcon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .statInfo h3 {
+    font-size: 22px;
+  }
+}

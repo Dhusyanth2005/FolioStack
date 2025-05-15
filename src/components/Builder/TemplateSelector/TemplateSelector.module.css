@@ -1,0 +1,259 @@
+/* TemplateSelector.module.css */
+.templateSelector {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 40px 20px;
+    font-family: var(--font-body);
+  }
+  
+  .sectionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  
+  .templateSelector h2 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--navy-blue);
+    margin: 0;
+    background: linear-gradient(135deg, var(--deep-blue), var(--accent-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .exploreMoreBtn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background-color: var(--primary-green);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius-md);
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .exploreMoreBtn:hover {
+    background-color: var(--deep-blue);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .instruction {
+    font-size: 1.1rem;
+    color: var(--dark-text-secondary);
+    margin-bottom: 32px;
+    max-width: 80%;
+    line-height: 1.6;
+  }
+  
+  .templatesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 32px;
+  }
+  
+  .templateCard {
+    background: white;
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    cursor: pointer;
+    position: relative;
+    border: 2px solid transparent;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .templateCard:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .templateCard.selected {
+    border: 2px solid var(--primary-green);
+  }
+  
+  .templateImage {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+  }
+  
+  .templateImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-normal);
+  }
+  
+  .templateCard:hover .templateImage img {
+    transform: scale(1.05);
+  }
+  
+  .freeTag {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: var(--primary-green);
+    color: white;
+    padding: 4px 12px;
+    border-radius: var(--border-radius-sm);
+    font-weight: 600;
+    font-size: 0.8rem;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .selectedOverlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(var(--primary-green-rgb), 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .checkIcon {
+    color: white;
+    filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.5));
+  }
+  
+  .templateInfo {
+    padding: 24px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .templateInfo h3 {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--navy-blue);
+    margin-top: 0;
+    margin-bottom: 12px;
+  }
+  
+  .templateInfo p {
+    color: var(--dark-text-secondary);
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+  
+  .templateInfo h4 {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--accent-blue);
+    margin-bottom: 12px;
+  }
+  
+  .featuresList {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 16px;
+  }
+  
+  .featuresList li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: var(--dark-text-secondary);
+  }
+  
+  .featureDot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background-color: var(--primary-green);
+    border-radius: 50%;
+  }
+  
+  .selectBtn, .selectedBtn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    margin-top: auto;
+  }
+  
+  .selectBtn {
+    background-color: #f5f5f5;
+    color: var(--navy-blue);
+  }
+  
+  .selectBtn:hover {
+    background-color: #e5e5e5;
+  }
+  
+  .selectedBtn {
+    background-color: var(--primary-green);
+    color: white;
+  }
+  
+  /* Dark mode styling */
+  @media (prefers-color-scheme: dark) {
+    .templateCard {
+      background: var(--dark-surface);
+    }
+    
+    .templateInfo h3 {
+      color: white;
+    }
+    
+    .templateInfo p, .templateInfo h4, .featuresList li {
+      color: var(--dark-text-secondary);
+    }
+    
+    .selectBtn {
+      background-color: var(--dark-surface-2);
+      color: white;
+    }
+    
+    .selectBtn:hover {
+      background-color: #3a3a3a;
+    }
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .templatesGrid {
+      grid-template-columns: 1fr;
+    }
+    
+    .featuresList {
+      grid-template-columns: 1fr;
+    }
+    
+    .sectionHeader {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    
+    .exploreMoreBtn {
+      align-self: flex-start;
+    }
+    
+    .instruction {
+      max-width: 100%;
+    }
+  }

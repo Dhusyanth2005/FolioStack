@@ -1,0 +1,332 @@
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.statCard {
+  display: flex;
+  align-items: center;
+  background-color: var(--dark-surface);
+  border-radius: var(--border-radius-md);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+  border-left: 4px solid var(--primary-green);
+  position: relative;
+  overflow: hidden;
+}
+
+.statCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(var(--primary-green-rgb), 0.03) 0%, transparent 50%);
+  z-index: 0;
+}
+
+.statCard:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+  border-left-color: var(--accent-blue);
+}
+
+.statIcon {
+  padding-right: 0;
+  padding-left: 5px;
+  font-size: 10px;
+  margin-right: 20px;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-teal) 100%);
+  border-radius: 12px;
+  color: white;
+  box-shadow: 0 4px 12px rgba(var(--primary-green-rgb), 0.3);
+  position: relative;
+  z-index: 1;
+  transition: all var(--transition-normal);
+}
+
+.statCard:hover .statIcon {
+  transform: scale(1.1);
+  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--deep-blue) 100%);
+}
+
+.statInfo {
+  position: relative;
+  z-index: 1;
+}
+
+.statInfo h3 {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+  color: var(--dark-text);
+  font-family: var(--font-heading);
+  transition: color var(--transition-fast);
+}
+
+.statCard:hover .statInfo h3 {
+  color: var(--mint);
+}
+
+.statInfo p {
+  margin: 0;
+  color: var(--dark-text-secondary);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+.analyticsSection {
+  margin-bottom: 50px;
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.analyticsSection h2 {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  margin-bottom: 24px;
+  color: var(--dark-text);
+  position: relative;
+  padding-bottom: 12px;
+  font-weight: 600;
+}
+
+.analyticsSection h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(to right, var(--primary-green), var(--accent-blue));
+  border-radius: 2px;
+}
+
+.analyticsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  animation: slideUp 0.6s ease-out;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.chartCard {
+  background-color: var(--dark-surface);
+  border-radius: var(--border-radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.chartCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(to right, var(--primary-green), var(--accent-blue));
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.chartCard:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.chartCard:hover::before {
+  opacity: 1;
+}
+
+.chartCard h3 {
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: var(--dark-text);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+.chartCard h3::before {
+  content: '';
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background: var(--primary-green);
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.chartContainer {
+  height: 260px;
+  position: relative;
+  margin: 10px 0;
+  /* Ensure we keep a bit of padding around the chart to handle hover effects */
+  padding: 10px;
+}
+
+/* Fix for pie chart overflow issue */
+:global(.recharts-wrapper) {
+  overflow: visible;
+}
+
+:global(.recharts-surface) {
+  overflow: visible;
+}
+
+/* Limit the expansion of pie sectors to prevent overflow */
+:global(.recharts-pie-sector) {
+  transition: transform var(--transition-fast);
+  transform-origin: center;
+}
+
+:global(.recharts-pie-sector:hover) {
+  transform: scale(1.03);
+  /* Ensure pie sectors don't overflow their container */
+  overflow: visible;
+}
+
+:global(.recharts-pie) {
+  /* Add some padding to account for hover expansion */
+  transform: scale(0.9);
+}
+
+/* Custom styling for chart components */
+:global(.recharts-cartesian-grid-horizontal line),
+:global(.recharts-cartesian-grid-vertical line) {
+  stroke: rgba(255, 255, 255, 0.08);
+}
+
+:global(.recharts-tooltip-wrapper) {
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-md);
+  /* Ensure tooltips are above all other elements */
+  z-index: 10;
+}
+
+:global(.recharts-default-tooltip) {
+  background-color: rgba(30, 30, 30, 0.95) !important;
+  border: 1px solid var(--primary-green) !important;
+  border-radius: var(--border-radius-md) !important;
+  padding: 12px !important;
+}
+
+:global(.recharts-tooltip-label) {
+  color: var(--dark-text) !important;
+}
+
+:global(.recharts-tooltip-item) {
+  color: var(--mint) !important;
+}
+
+:global(.recharts-bar-rectangle) {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  transition: all var(--transition-fast);
+}
+
+:global(.recharts-legend-item) {
+  transition: all var(--transition-fast);
+}
+
+:global(.recharts-legend-item:hover) {
+  transform: translateX(5px);
+}
+
+/* Ensure legends don't overflow */
+:global(.recharts-legend-wrapper) {
+  overflow: visible !important;
+}
+
+@media (max-width: 1024px) {
+  .analyticsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .statCard {
+    padding: 20px;
+  }
+  
+  .statIcon {
+    width: 46px;
+    height: 46px;
+    font-size: 24px;
+  }
+  
+  /* Scale down charts slightly on smaller screens */
+  :global(.recharts-pie) {
+    transform: scale(0.85);
+  }
+}
+
+@media (max-width: 576px) {
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .analyticsSection h2 {
+    font-size: 22px;
+  }
+  
+  .chartCard {
+    padding: 18px;
+  }
+  
+  .chartContainer {
+    height: 220px;
+  }
+  
+  /* Further scale down charts on mobile */
+  :global(.recharts-pie) {
+    transform: scale(0.8);
+  }
+}
+
+/* Custom animations for chart elements */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes fadeInStaggered {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.statsGrid > div:nth-child(1) { animation: fadeInStaggered 0.5s ease-out 0.1s both; }
+.statsGrid > div:nth-child(2) { animation: fadeInStaggered 0.5s ease-out 0.2s both; }
+.statsGrid > div:nth-child(3) { animation: fadeInStaggered 0.5s ease-out 0.3s both; }
+.statsGrid > div:nth-child(4) { animation: fadeInStaggered 0.5s ease-out 0.4s both; }
+
+.analyticsGrid > div:nth-child(1) { animation: fadeInStaggered 0.5s ease-out 0.3s both; }
+.analyticsGrid > div:nth-child(2) { animation: fadeInStaggered 0.5s ease-out 0.4s both; }

@@ -1,0 +1,318 @@
+.section {
+    padding: 80px 0;
+    position: relative;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    --primary-color: #1a1a1a;
+    --accent-color: #5c6bc0;
+    --text-color: #333333;
+    --subtext-color: #666666;
+    --secondary-color: #f5f5f5;
+  }
+  
+  .section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .sectionIntro {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  .headingIcon {
+    margin-right: 10px;
+    color: var(--accent-color);
+    vertical-align: middle;
+  }
+  .sectionHeading {
+    font-size: 38px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    background: linear-gradient(135deg, var(--text-color) 0%, var(--accent-color) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    transition: all 0.3s ease;
+  }
+  
+  .sectionHeading:hover {
+    transform: translateX(5px);
+  }
+  
+  .underline {
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    display: inline;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(to right, var(--accent-color), var(--primary-color));
+    border-radius: 2px;
+    transition: width 0.3s ease;
+  }
+  
+  .sectionHeading:hover .underline {
+    width: 100%;
+  }
+  
+  .sectionSubheading {
+    font-size: 18px;
+    color: var(--subtext-color);
+    margin: 30px auto 0;
+    max-width: 600px;
+    line-height: 1.6;
+  }
+  
+  .projectsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); /* Ensure horizontal layout */
+    gap: 50px; /* Add spacing between grid items */
+    perspective: 1000px;
+    margin: 0 auto; /* Center the grid container */
+}
+  
+  .projectCard {
+    background-color: var(--secondary-color);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transform-style: preserve-3d;
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+  
+  .projectImage {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .projectImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .projectOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(3px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+  }
+  
+  .projectActions {
+    display: flex;
+    gap: 12px;
+  }
+  
+  .projectActionButton {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: var(--primary-color);
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .projectActionButton:hover {
+    background-color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .placeholderImage {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(92, 107, 192, 0.2), rgba(92, 107, 192, 0.3));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-color);
+  }
+  
+  .projectContent {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .projectTitle {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--text-color);
+    position: relative;
+    display: inline-block;
+  }
+  
+  .projectTitle::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background-color: var(--accent-color);
+    border-radius: 3px;
+    transition: width 0.3s ease;
+  }
+  
+  .projectCard:hover .projectTitle::after {
+    width: 70px;
+  }
+  
+  .projectTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 15px;
+  }
+  
+  .projectTag {
+    padding: 4px 10px;
+    background-color: rgba(92, 107, 192, 0.1);
+    color: var(--accent-color);
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  
+  .projectDesc {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--subtext-color);
+    margin-bottom: 25px;
+    flex-grow: 1;
+  }
+  
+  .projectLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background-color: var(--accent-color);
+    color: #ffffff;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    align-self: flex-start;
+    box-shadow: 0 6px 12px rgba(92, 107, 192, 0.2);
+  }
+  
+  .projectLinkIcon {
+    margin-left: 2px;
+    transition: transform 0.3s ease;
+  }
+  
+  .projectLink:hover .projectLinkIcon {
+    transform: translateX(5px);
+  }
+  
+  .noProjects {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: var(--subtext-color);
+    padding: 60px 0;
+    font-size: 20px;
+    background-color: var(--secondary-color);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Glassmorphism effect for cards */
+  .projectCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 16px;
+    backdrop-filter: blur(5px);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .projectCard:hover::before {
+    opacity: 1;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 992px) {
+    .projectsGrid {
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .section {
+      padding: 60px 0;
+    }
+  
+    .projectsGrid {
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 25px;
+    }
+    
+    .sectionHeading {
+      font-size: 36px;
+    }
+    
+    .sectionSubheading {
+      font-size: 16px;
+      margin-top: 20px;
+    }
+    
+    .sectionIntro {
+      margin-bottom: 40px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .section {
+      padding: 40px 0;
+    }
+    
+    .projectsGrid {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+    
+    .sectionHeading {
+      font-size: 32px;
+    }
+    
+    .projectImage {
+      height: 180px;
+    }
+  }

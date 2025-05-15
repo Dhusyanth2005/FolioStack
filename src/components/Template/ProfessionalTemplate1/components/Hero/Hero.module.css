@@ -1,0 +1,311 @@
+/* Hero.module.css - Enhanced with better effects */
+
+.hero {
+  min-height: 85vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 5%;
+  position: relative;
+  margin-bottom: 60px;
+  overflow: visible;
+  width: 100%;
+  box-sizing: border-box;
+  gap: 40px;
+}
+
+.heroBg {
+  position: absolute;
+  top: 10%;
+  right: 0;
+  width: 50%;
+  height: 90%;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: 1;
+  pointer-events: none;
+  /* Animation now handled by Framer Motion */
+}
+
+.heroContent {
+  width: 55%;
+  z-index: 2;
+  /* Animations now handled by Framer Motion */
+}
+
+.heroImage {
+  width: 35%;
+  min-width: 300px;
+  max-width: 450px;
+  border-radius: 16px;
+  overflow: hidden;
+  z-index: 2;
+  position: relative;
+  /* Animations now handled by Framer Motion */
+}
+
+.greeting {
+  display: block;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  /* Animation now handled by Framer Motion */
+}
+
+.name {
+  font-size: 54px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  /* Animation now handled by Framer Motion */
+}
+
+/* Add subtle text shadow for better readability */
+.name::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  filter: blur(10px);
+  opacity: 0.5;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.profession {
+  font-size: 26px;
+  font-weight: 500;
+  margin-bottom: 24px;
+  /* Animation now handled by Framer Motion */
+}
+
+.bio {
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  max-width: 90%;
+  /* Animation now handled by Framer Motion */
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 20px;
+  /* Animation now handled by Framer Motion */
+}
+
+.primaryButton {
+  padding: 14px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  /* Animations now handled by Framer Motion */
+}
+
+.primaryButton::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  z-index: -1;
+  animation: shineEffect 3s infinite;
+}
+
+@keyframes shineEffect {
+  0% {
+    left: -100%;
+  }
+  20%, 100% {
+    left: 100%;
+  }
+}
+
+.secondaryButton {
+  padding: 14px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: transparent;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  /* Animations now handled by Framer Motion */
+}
+
+.secondaryButtonUnderline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  /* Width animation now handled by Framer Motion */
+}
+
+.placeholderImage {
+  width: 100%;
+  aspect-ratio: 3/4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.imageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.3;
+  /* Transition now handled by Framer Motion */
+}
+
+.socialIcons {
+  display: flex;
+  gap: 16px;
+  margin-top: 30px;
+  /* Animation now handled by Framer Motion */
+}
+
+.socialIcon {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  /* Animation now handled by Framer Motion */
+}
+
+.buttonIcon {
+  margin-left: 8px;
+  display: inline-block;
+  /* Animation now handled by Framer Motion */
+}
+
+/* Floating particles effect */
+.particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.3;
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+  .heroBg {
+    width: 55%;
+    right: 0;
+  }
+  
+  .heroImage {
+    width: 40%;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    padding: 20px 5%;
+    gap: 40px;
+  }
+  
+  .heroContent {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .heroBg {
+    width: 80%;
+    right: 10%;
+    top: 20%;
+  }
+  
+  .heroImage {
+    width: 90%;
+    max-width: 400px;
+    margin: 20px auto 0;
+  }
+  
+  .name {
+    font-size: 36px;
+  }
+  
+  .profession {
+    font-size: 20px;
+  }
+  
+  .bio {
+    max-width: 100%;
+  }
+  
+  .ctaButtons {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .socialIcons {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .name {
+    font-size: 32px;
+  }
+  
+  .greeting {
+    font-size: 18px;
+  }
+  
+  .profession {
+    font-size: 18px;
+  }
+  
+  .bio {
+    font-size: 16px;
+  }
+  
+  .ctaButtons {
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+  }
+}

@@ -1,0 +1,472 @@
+/* Experience section styles */
+.section {
+    padding: 80px 0;
+    position: relative;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    /* CSS variables initialized in the component */
+    --primary-color: #333;
+    --accent-color: #007bff;
+    --text-color: #333;
+    --subtext-color: #666;
+    --secondary-color: #f5f5f5;
+  }
+  
+  .visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .contentContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .headingIcon {
+    margin-right: 10px;
+    color: var(--accent-color);
+    vertical-align: middle;
+  }
+  
+  .sectionHeading {
+    font-size: 38px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    background: linear-gradient(135deg, var(--text-color) 0%, var(--accent-color) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    transition: all 0.3s ease;
+  }
+  
+  .sectionHeading:hover {
+    transform: translateX(5px);
+  }
+  
+  .underline {
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(to right, var(--accent-color), var(--primary-color));
+    border-radius: 2px;
+    transition: width 0.3s ease;
+  }
+  
+  .sectionHeading:hover .underline {
+    width: 100%;
+  }
+  
+  .sectionSubheading {
+    font-size: 18px;
+    color: var(--subtext-color);
+    margin-bottom: 50px;
+    max-width: 700px;
+    line-height: 1.6;
+  }
+  
+  /* Timeline specific styles */
+  .timelineContainer {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 0;
+  }
+  
+  .timelineLine {
+    position: absolute;
+    width: 4px;
+    background-color: var(--secondary-color);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  
+  .timelineProgress {
+    position: absolute;
+    width: 100%;
+    background: linear-gradient(to bottom, var(--accent-color), var(--accent-color) 75%, transparent);
+    top: 0;
+    height: 0%;
+    animation: progressLine 1.5s ease-out forwards;
+    animation-delay: 0.5s;
+  }
+  
+  @keyframes progressLine {
+    0% {
+      height: 0%;
+    }
+    100% {
+      height: 100%;
+    }
+  }
+  
+  /* Experience Card Styles */
+  .experienceCard {
+    padding: 25px;
+    background-color: var(--secondary-color);
+    border-radius: 12px;
+    position: relative;
+    width: calc(50% - 50px);
+    margin-bottom: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+  
+  .cardVisible {
+    opacity: 1;
+  }
+  
+  .experienceCardLeft {
+    left: 0;
+    transform: translateX(-50px);
+  }
+  
+  .experienceCardRight {
+    left: 50%;
+    margin-left: 50px;
+    transform: translateX(50px);
+  }
+  
+  .cardVisible.experienceCardLeft,
+  .cardVisible.experienceCardRight {
+    transform: translateX(0);
+  }
+  
+  .experienceCardLeft::before,
+  .experienceCardRight::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+  }
+  
+  .experienceCardLeft::before {
+    right: -15px;
+    border-width: 15px 0 15px 15px;
+    border-color: transparent transparent transparent var(--secondary-color);
+  }
+  
+  .experienceCardRight::before {
+    left: -15px;
+    border-width: 15px 15px 15px 0;
+    border-color: transparent var(--secondary-color) transparent transparent;
+  }
+  
+  .experienceCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+    background: linear-gradient(to bottom right, 
+      var(--secondary-color), 
+      color-mix(in srgb, var(--accent-color) 10%, var(--secondary-color))
+    );
+  }
+  
+  /* Timeline Dot Styles */
+  .experienceDot {
+    width: 20px;
+    height: 20px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    position: absolute;
+    top: 20px;
+    z-index: 1;
+    box-shadow: 0 0 0 4px var(--secondary-color), 0 0 0 6px rgba(0, 123, 255, 0.3);
+    transition: all 0.3s ease;
+  }
+  
+  .experienceDotLeft {
+    right: -60px;
+  }
+  
+  .experienceDotRight {
+    left: -60px;
+  }
+  
+  .experienceCard:hover .experienceDot {
+    transform: scale(1.2);
+    box-shadow: 0 0 0 4px var(--secondary-color), 0 0 0 8px rgba(0, 123, 255, 0.4);
+  }
+  
+  .currentJobPulse {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    opacity: 0.7;
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      opacity: 0.7;
+    }
+    70% {
+      transform: scale(1.7);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1.7);
+      opacity: 0;
+    }
+  }
+  
+  /* Experience Content Styles */
+  .experienceHeader {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .experienceDate, 
+  .experienceCompany {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: var(--subtext-color);
+    background-color: color-mix(in srgb, var(--accent-color) 15%, var(--secondary-color));
+    padding: 6px 12px;
+    border-radius: 30px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+  
+  .experienceIcon {
+    margin-right: 6px;
+    color: var(--accent-color);
+  }
+  
+  .experienceTitle {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .titleIcon {
+    color: var(--accent-color);
+    margin-right: 5px;
+    transition: transform 0.3s ease;
+  }
+  
+  .experienceCard:hover .experienceTitle {
+    color: var(--accent-color);
+  }
+  
+  .experienceCard:hover .titleIcon {
+    transform: translateX(3px);
+  }
+  
+  .experienceContentWrapper {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .experienceDesc {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--subtext-color);
+    margin-bottom: 20px;
+  }
+  
+  /* Achievements List Styles */
+  .achievementsList {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: color-mix(in srgb, var(--accent-color) 5%, var(--secondary-color));
+    border-left: 3px solid var(--accent-color);
+  }
+  
+  .achievementsTitle {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--accent-color);
+  }
+  
+  .achievementIcon {
+    margin-right: 8px;
+  }
+  
+  .achievementsList ul {
+    padding-left: 10px;
+    list-style-type: none;
+  }
+  
+  .achievementsList li {
+    display: flex;
+    align-items: flex-start;
+    padding: 8px 0;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--subtext-color);
+  }
+  
+  .listIcon {
+    color: var(--accent-color);
+    margin-right: 8px;
+    margin-top: 3px;
+    flex-shrink: 0;
+  }
+  
+  /* Skill Tags Styles */
+  .skillTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+  }
+  
+  .skillTag {
+    font-size: 13px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    background-color: color-mix(in srgb, var(--accent-color) 15%, transparent);
+    color: var(--accent-color);
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+  
+  .skillTag:hover {
+    background-color: var(--accent-color);
+    color: white;
+    transform: translateY(-2px);
+  }
+  
+  /* Mobile View Styles */
+  .mobileExperienceList {
+    display: none;
+    flex-direction: column;
+    gap: 25px;
+    padding: 20px 0;
+  }
+  
+  .mobileExperienceCard {
+    padding: 25px;
+    background-color: var(--secondary-color);
+    border-radius: 12px;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    border-left: 4px solid var(--accent-color);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  .mobileExperienceCard.cardVisible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .mobileExperienceCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+    background: linear-gradient(to bottom right, 
+      var(--secondary-color), 
+      color-mix(in srgb, var(--accent-color) 10%, var(--secondary-color))
+    );
+  }
+  
+  .mobileCardHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
+  /* Empty state */
+  .emptyState {
+    text-align: center;
+    color: var(--subtext-color);
+    padding: 40px 0;
+    font-style: italic;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 992px) {
+    .timelineContainer {
+      padding: 20px 0;
+    }
+    
+    .experienceCardLeft::before,
+    .experienceCardRight::before {
+      display: none;
+    }
+    
+    .experienceCard {
+      width: calc(50% - 30px);
+    }
+    
+    .experienceDotLeft {
+      right: -50px;
+    }
+    
+    .experienceDotRight {
+      left: -50px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .section {
+      padding: 60px 0;
+    }
+    
+    .sectionHeading {
+      font-size: 32px;
+    }
+    
+    .timelineContainer {
+      display: none;
+    }
+    
+    .mobileExperienceList {
+      display: flex;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .sectionHeading {
+      font-size: 28px;
+    }
+    
+    .sectionSubheading {
+      font-size: 16px;
+      margin-bottom: 30px;
+    }
+    
+    .mobileExperienceCard {
+      padding: 20px;
+    }
+    
+    .experienceTitle {
+      font-size: 20px;
+    }
+    
+    .experienceHeader {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+  }
