@@ -1,6 +1,7 @@
 import React from 'react';
 import ProfessionalTemplate from '../components/Template/ProfessionalTemplate1/ProfessionalTemplate1';
 import ModernMinimalTemplate from '../components/Template/ModernMinimalTemplate/ModernMinimalTemplate';
+import CreativePortfolioTemplate from '../components/Template/CreativePortfolioTemplate/CreativePortfolioTemplate';
 
 const PortfolioPreview = () => {
   // Retrieve formData from localStorage
@@ -14,7 +15,7 @@ const PortfolioPreview = () => {
       case 'Professional':
         return <ProfessionalTemplate formData={formData} />;
       case 'Creative':
-        return <div>Creative Template (Component Not Implemented)</div>;
+        return <CreativePortfolioTemplate formData={formData} />;
       default:
         return <div>Default Template</div>;
     }

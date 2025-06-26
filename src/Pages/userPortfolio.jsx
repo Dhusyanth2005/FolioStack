@@ -4,6 +4,7 @@ import axios from 'axios';
 import ProfessionalTemplate from '../components/Template/ProfessionalTemplate1/ProfessionalTemplate1';
 import ModernMinimalTemplate from '../components/Template/ModernMinimalTemplate/ModernMinimalTemplate';
 import styles from './userPortfolio.module.css';
+import CreativePortfolioTemplate from '../components/Template/CreativePortfolioTemplate/CreativePortfolioTemplate';
 
 const UserPortfolio = () => {
   const { fullname, title } = useParams();
@@ -89,7 +90,7 @@ const UserPortfolio = () => {
         return <ModernMinimalTemplate formData={portfolioData} />;
       case '3':
       case 'Creative':
-        return <TemplateComingSoon name="Creative" />;
+        return <CreativePortfolioTemplate formData={portfolioData} />;
       default:
         return <ProfessionalTemplate formData={portfolioData} />;
     }
@@ -138,18 +139,7 @@ const UserPortfolio = () => {
     </div>
   );
 
-  // Template coming soon
-  const TemplateComingSoon = ({ name }) => (
-    <div className={styles.comingSoonContainer}>
-      <div className={styles.comingSoonContent}>
-        <div className={styles.comingSoonIcon}>🚀</div>
-        <h2 className={styles.comingSoonTitle}>{name} Template</h2>
-        <p className={styles.comingSoonMessage}>
-          This template is coming soon! We're working hard to bring you more design options.
-        </p>
-      </div>
-    </div>
-  );
+
 
   // Portfolio not available
   const PortfolioNotAvailable = () => (

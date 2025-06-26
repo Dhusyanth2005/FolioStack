@@ -3,6 +3,7 @@ import { Share2, Copy, ExternalLink, RefreshCw } from 'lucide-react';
 import styles from './Preview.module.css';
 import ProfessionalTemplate from '../../Template/ProfessionalTemplate1/ProfessionalTemplate1';
 import ModernMinimalTemplate from '../../Template/ModernMinimalTemplate/ModernMinimalTemplate';
+import CreativePortfolioTemplate from '../../Template/CreativePortfolioTemplate/CreativePortfolioTemplate';
 
 const Preview = ({ formData, onPublishToggle,userData }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -117,11 +118,7 @@ const cleanFormData = (data) => {
       case 'Professional':
         return <ProfessionalTemplate key={refreshKey} formData={safeFormData} />;
       case 'Creative':
-        return (
-          <div key={refreshKey} className={styles.templatePreview} style={{ backgroundColor: themeColors.primary, color: contrastColor }}>
-            Creative Template (Component Not Implemented)
-          </div>
-        );
+        return <CreativePortfolioTemplate key={refreshKey} formData={safeFormData} />;
       default:
         return (
           <div key={refreshKey} className={styles.templatePreview} style={{ backgroundColor: themeColors.primary, color: contrastColor }}>
@@ -130,6 +127,7 @@ const cleanFormData = (data) => {
         );
     }
   };
+
 
   const generatePortfolioUrl = () => {
     const baseUrl = window.location.origin;
